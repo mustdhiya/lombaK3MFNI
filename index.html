@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BUKTIKAN SENDIRI! - Urgensi K3</title>
+    <link rel="icon" href="logo.png" type="image/png">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: 
+                linear-gradient(180deg, rgba(237, 237, 237, 0.85) 0%, rgba(0,0,0,0.75) 50%, rgba(201, 201, 201, 0.9) 100%),
+                url('back.jpeg');
+            font-family: 'Arial Black', 'Impact', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%23111" width="100" height="100"/></svg>');
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            animation: glitch 3s infinite;
+        }
+
+        .coming-soon {
+            font-size: 1.2rem;
+            color: #999;
+            letter-spacing: 0.3em;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 10vw, 8rem);
+            color: #ff0000;
+            text-shadow: 
+                0 0 10px #ff0000,
+                0 0 20px #ff0000,
+                0 0 30px #ff0000,
+                5px 5px 0 rgba(0,0,0,0.8);
+            letter-spacing: 0.05em;
+            line-height: 1;
+            animation: flicker 2s infinite alternate, bloodDrip 4s infinite;
+            margin-bottom: 40px;
+            position: relative;
+        }
+
+        /* Blood Drip Effect */
+        .hero h1::after {
+            content: '';
+            position: absolute;
+            bottom: -20px;
+            left: 30%;
+            width: 8px;
+            height: 40px;
+            background: linear-gradient(180deg, 
+                #ff0000 0%, 
+                #cc0000 30%, 
+                #990000 60%, 
+                transparent 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: drip 3s infinite;
+            box-shadow: 
+                0 0 10px rgba(255,0,0,0.8),
+                0 5px 15px rgba(255,0,0,0.5);
+        }
+
+        .hero h1::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 25%;
+            width: 6px;
+            height: 30px;
+            background: linear-gradient(180deg, 
+                #ff0000 0%, 
+                #cc0000 30%, 
+                #990000 60%, 
+                transparent 100%);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: drip 3s infinite 0.5s;
+            box-shadow: 
+                0 0 10px rgba(255,0,0,0.8),
+                0 5px 15px rgba(255,0,0,0.5);
+        }
+
+        @keyframes drip {
+            0% {
+                height: 0;
+                opacity: 0;
+            }
+            20% {
+                height: 30px;
+                opacity: 1;
+            }
+            40% {
+                height: 40px;
+                opacity: 0.9;
+            }
+            60% {
+                height: 45px;
+                opacity: 0.7;
+            }
+            80% {
+                height: 50px;
+                opacity: 0.4;
+            }
+            100% {
+                height: 55px;
+                opacity: 0;
+                transform: translateY(10px);
+            }
+        }
+
+        @keyframes bloodDrip {
+            0%, 100% {
+                filter: brightness(1) contrast(1);
+            }
+            50% {
+                filter: brightness(1.2) contrast(1.3) hue-rotate(-10deg);
+            }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1rem, 2.5vw, 1.8rem);
+            color: #ffd700;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .hero-text {
+            font-size: clamp(0.9rem, 2vw, 1.3rem);
+            color: #ff4444;
+            max-width: 600px;
+            line-height: 1.4;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .hero-text span {
+            color: #fff;
+        }
+
+        .hero-text .blood-text {
+            color: #ff0000;
+            position: relative;
+            display: inline-block;
+            animation: bloodPulse 2s infinite;
+        }
+
+        .hero-text .blood-text::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 15px;
+            background: linear-gradient(180deg, #ff0000, transparent);
+            border-radius: 50%;
+            animation: miniDrip 2s infinite;
+        }
+
+        @keyframes bloodPulse {
+            0%, 100% {
+                text-shadow: 
+                    0 0 5px #ff0000,
+                    0 0 10px #ff0000,
+                    0 0 15px #ff0000;
+            }
+            50% {
+                text-shadow: 
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000,
+                    0 0 30px #ff0000,
+                    0 0 40px #cc0000;
+            }
+        }
+
+        @keyframes miniDrip {
+            0% {
+                height: 0;
+                opacity: 0;
+            }
+            50% {
+                height: 15px;
+                opacity: 1;
+            }
+            100% {
+                height: 20px;
+                opacity: 0;
+            }
+        }
+
+        /* Glitch Animation */
+        @keyframes glitch {
+            0%, 100% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+        }
+
+        @keyframes flicker {
+            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+                text-shadow: 
+                    0 0 10px #ff0000,
+                    0 0 20px #ff0000,
+                    0 0 30px #ff0000,
+                    5px 5px 0 rgba(0,0,0,0.8);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        /* Content Section */
+        .content-section {
+            padding: 80px 20px;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a0000 100%);
+            position: relative;
+        }
+
+        .content-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(255,0,0,0.03) 2px,
+                rgba(255,0,0,0.03) 4px
+            );
+            pointer-events: none;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .split-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 768px) {
+            .split-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .image-box {
+            position: relative;
+            overflow: hidden;
+            border: 3px solid #ff0000;
+            box-shadow: 0 0 30px rgba(255,0,0,0.5);
+        }
+
+        .image-box::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 20%;
+            width: 15px;
+            height: 40px;
+            background: linear-gradient(180deg, #ff0000, #990000, transparent);
+            border-radius: 50%;
+            animation: borderDrip 4s infinite;
+        }
+
+        @keyframes borderDrip {
+            0% {
+                height: 0;
+                opacity: 0;
+            }
+            30% {
+                height: 40px;
+                opacity: 1;
+            }
+            100% {
+                height: 60px;
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(50%) contrast(120%);
+            transition: all 0.3s;
+        }
+
+        .image-box:hover img {
+            filter: grayscale(0%) contrast(140%);
+            transform: scale(1.05);
+        }
+
+        .text-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-box h2 {
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: #ff0000;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            line-height: 1.1;
+            position: relative;
+            animation: bloodPulse 3s infinite;
+        }
+
+        .text-box h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 10%;
+            width: 6px;
+            height: 25px;
+            background: linear-gradient(180deg, #ff0000, transparent);
+            border-radius: 50%;
+            animation: drip 3s infinite 1s;
+        }
+
+        .text-box p {
+            font-size: clamp(1rem, 1.5vw, 1.2rem);
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #ccc;
+            font-family: Arial, sans-serif;
+        }
+
+        .text-box strong {
+            color: #ffd700;
+            font-weight: bold;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: #000;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, #1a0000 0%, #000 100%);
+            padding: 40px 20px;
+            border: 2px solid #ff0000;
+            box-shadow: 0 0 20px rgba(255,0,0,0.3);
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .stat-card::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            right: 30%;
+            width: 8px;
+            height: 30px;
+            background: linear-gradient(180deg, #ff0000, transparent);
+            border-radius: 50%;
+            animation: drip 4s infinite 0.5s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 0 40px rgba(255,0,0,0.6);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            color: #ff0000;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px #ff0000;
+            animation: bloodPulse 2s infinite;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            color: #ffd700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Urgency Section */
+        .urgency-section {
+            background: linear-gradient(180deg, #1a0000 0%, #0a0a0a 100%);
+            padding: 100px 20px;
+            text-align: center;
+        }
+
+        .urgency-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            color: #ff0000;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px #ff0000;
+            position: relative;
+            display: inline-block;
+            animation: bloodPulse 3s infinite;
+        }
+
+        .urgency-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 40%;
+            width: 10px;
+            height: 35px;
+            background: linear-gradient(180deg, #ff0000, #990000, transparent);
+            border-radius: 50%;
+            animation: drip 3s infinite 0.8s;
+        }
+
+        .urgency-list {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .urgency-item {
+            background: rgba(255,0,0,0.05);
+            border-left: 5px solid #ff0000;
+            padding: 30px;
+            margin-bottom: 30px;
+            transition: all 0.3s;
+            position: relative;
+        }
+
+        .urgency-item::before {
+            content: '';
+            position: absolute;
+            top: 10px;
+            left: -8px;
+            width: 8px;
+            height: 20px;
+            background: linear-gradient(180deg, #ff0000, transparent);
+            border-radius: 50%;
+            animation: miniDrip 3s infinite;
+        }
+
+        .urgency-item:hover {
+            background: rgba(255,0,0,0.1);
+            transform: translateX(10px);
+        }
+
+        .urgency-item h3 {
+            color: #ffd700;
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .urgency-item p {
+            color: #ccc;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Footer Section */
+        .footer-section {
+            background: #000;
+            padding: 60px 20px;
+            text-align: center;
+            border-top: 3px solid #ff0000;
+            position: relative;
+        }
+
+        .footer-section::after {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            width: 12px;
+            height: 40px;
+            background: linear-gradient(180deg, #ff0000, #990000, transparent);
+            border-radius: 50%;
+            animation: drip 3s infinite;
+        }
+
+        .footer-text {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: #ff0000;
+            margin-bottom: 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+            animation: bloodPulse 3s infinite;
+        }
+
+        .footer-description {
+            max-width: 800px;
+            margin: 0 auto 40px;
+            color: #999;
+            font-size: 1rem;
+            line-height: 1.8;
+            font-family: Arial, sans-serif;
+        }
+
+        .credits {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #333;
+            font-size: 0.8rem;
+            color: #666;
+            letter-spacing: 0.1em;
+            line-height: 2;
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="coming-soon">COMING SOON</div>
+        <h1>BUKTIKAN SENDIRI!</h1>
+        <p class="hero-subtitle">BAGI KAMI MENCARI<br>KARYAWAN TIDAK CACAT<br>SANGAT MUDAH.</p>
+        <p class="hero-text">YANG SUSAH ITU <span>PENERIMAAN</span><br>ANDA KETIKA <span class="blood-text">CACAT NANTI!</span></p>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section">
+        <div class="container">
+            <div class="split-content">
+                <div class="image-box">
+                    <!-- Placeholder for image - ganti dengan foto prostetik leg Anda -->
+                    <div style="height: 600px; background: linear-gradient(45deg, #222, #111); display: flex; align-items: center; justify-content: center; color: #666;">
+                        <img src="contoh.png" alt="kecelakaan kerja">
+                    </div>
+                </div>
+                <div class="text-box">
+                    <h2>KONSEKUENSI NYATA KECELAKAAN KERJA</h2>
+                    <p><strong>HARAPAN</strong> yang dilandasi <strong>TANGGUNG JAWAB</strong> akan melahirkan <strong>KESEJAHTERAAN</strong>.</p>
+                    <p>Poster ini menggambarkan konsekuensi nyata kecelakaan kerja: beban keluarga yang harus menanggung dampak cacat selamanya.</p>
+                    <p><strong>BUKAN</strong> hanya statistik, tapi realitas kehidupan sehari-hari <strong>ISTRI</strong> menjadi penopang utama, <strong>ANAK</strong> menyaksikan perjuangan ayah.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats-section">
+        <div class="container">
+            <h2 class="urgency-title">FAKTA YANG TIDAK BISA DIABAIKAN</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">3</div>
+                    <div class="stat-label">Menit APD<br>vs<br>Cacat Selamanya</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">60%</div>
+                    <div class="stat-label">Kecelakaan<br>Akibat<br>Tidak Pakai APD</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number">35</div>
+                    <div class="stat-label">Tahun Dampak<br>Cacat<br>Pada Keluarga</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Urgency Section -->
+    <section class="urgency-section">
+        <div class="container">
+            <h2 class="urgency-title">URGENSI K3: DAMPAK TERSEMBUNYI</h2>
+            <div class="urgency-list">
+                <div class="urgency-item">
+                    <h3>1. ANAK MENJADI KORBAN BULLYING</h3>
+                    <p>Ketika ayah cacat akibat kecelakaan kerja, anak sering menghadapi <strong>stigma sosial</strong> dan bullying di sekolah. Mereka dicap sebagai "anak si cacat" atau "anak yang ayahnya tidak hati-hati". Dampak psikologis ini bisa bertahan hingga dewasa, mempengaruhi kepercayaan diri dan kesehatan mental anak.</p>
+                </div>
+
+                <div class="urgency-item">
+                    <h3>2. BEBAN EKONOMI KELUARGA MENINGKAT</h3>
+                    <p>Cacat permanen = <strong>kehilangan penghasilan utama</strong>. Istri harus bekerja ekstra, anak mungkin harus putus sekolah. Biaya medis jangka panjang, alat bantu prostetik, dan terapi rehabilitasi menggerus tabungan keluarga. Kemiskinan struktural dimulai dari sini.</p>
+                </div>
+
+                <div class="urgency-item">
+                    <h3>3. KESEHATAN MENTAL KELUARGA TERDAMPAK</h3>
+                    <p>Tidak hanya pekerja yang trauma. <strong>Istri mengalami burnout</strong> karena menjadi caregiver sekaligus pencari nafkah. Anak mengalami anxiety dan depresi melihat kondisi ayah. Keluarga yang dulu harmonis menjadi rapuh karena tekanan finansial dan emosional yang tiada henti.</p>
+                </div>
+
+                <div class="urgency-item">
+                    <h3>4. PENCEGAHAN DIMULAI DARI PILIHAN SEDERHANA</h3>
+                    <p><strong>3 menit memakai APD</strong> atau selamanya mengubah hidup keluarga. Keselamatan bukan tentang individu, tapi <strong>TANGGUNG JAWAB</strong> terhadap mereka yang bergantung pada Anda pulang selamat. Setiap hari Anda memilih: helm atau tidak? Harness atau tidak? Pilihan ini menentukan masa depan keluarga.</p>
+                </div>
+
+                <div class="urgency-item">
+                    <h3>5. PERUSAHAAN MUDAH CARI PENGGANTI, KELUARGA TIDAK</h3>
+                    <p>Fakta pahit: <strong>Bagi perusahaan, mencari karyawan baru tidak cacat sangat mudah</strong>. Yang susah itu penerimaan Anda dan keluarga ketika cacat nanti. Perusahaan berjalan terus. Tapi istri Anda? Anak Anda? Mereka menanggung konsekuensi seumur hidup.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <section class="footer-section">
+        <div class="container">
+            <h2 class="footer-text">PULANG SELAMAT. KELUARGA UTUH.<br>MASA DEPAN CERAH.</h2>
+            <p class="footer-description">
+                Dimulai dari pilihan SEKARANG. Bukan besok. Bukan nanti. SEKARANG.<br>
+                Karena cacat tidak menunggu Anda siap.
+            </p>
+            
+            <div class="credits">
+                HARAPAN yang dilandasi TANGGUNG JAWAB akan melahirkan KESEJAHTERAAN<br>
+                CONCEPT BY Muhammad Fauzan Nur Ilham MESSAGE FRAMING prevention first<br>
+                VISUAL PHOTOGRAPHY family burden study DESIGN EXECUTION Muhammad Fauzan Nur Ilham<br>
+                THEMATIC FOCUS workplace safety STRATEGIC MESSAGING cacat selamanya<br>
+                CREATED FOR Sayembara Poster K3 PELNI 2026<br>
+                @PELNI162 #BulanK3PELNI2026
+            </div>
+        </div>
+    </section>
+</body>
+</html>
