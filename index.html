@@ -13,21 +13,34 @@
         }
 
         body {
-            background: 
-                linear-gradient(180deg, rgba(237, 237, 237, 0.85) 0%, rgba(0,0,0,0.75) 50%, rgba(201, 201, 201, 0.9) 100%),
-                url('back.jpeg');
             font-family: 'Arial Black', 'Impact', sans-serif;
             background: #000;
             color: #fff;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Background Layer Terpisah dengan Grayscale */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('back.jpeg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            filter: grayscale(100%) brightness(0.4) contrast(1.2);
+            z-index: -1;
         }
 
         /* Hero Section */
         .hero {
             position: relative;
             height: 100vh;
-            background: linear-gradient(180deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.9) 100%), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><rect fill="%23111" width="100" height="100"/></svg>');
+            background: linear-gradient(180deg, rgba(0,0,0,0.5) 0%, rgba(0,0,0,0.7) 100%);
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -232,7 +245,7 @@
         /* Content Section */
         .content-section {
             padding: 80px 20px;
-            background: linear-gradient(180deg, #0a0a0a 0%, #1a0000 100%);
+            background: rgba(10,10,10,0.85);
             position: relative;
         }
 
@@ -288,6 +301,7 @@
             background: linear-gradient(180deg, #ff0000, #990000, transparent);
             border-radius: 50%;
             animation: borderDrip 4s infinite;
+            z-index: 10;
         }
 
         @keyframes borderDrip {
@@ -308,14 +322,15 @@
 
         .image-box img {
             width: 100%;
-            height: 100%;
+            height: 600px;
             object-fit: cover;
-            filter: grayscale(50%) contrast(120%);
+            filter: grayscale(70%) contrast(120%);
             transition: all 0.3s;
+            display: block;
         }
 
         .image-box:hover img {
-            filter: grayscale(0%) contrast(140%);
+            filter: grayscale(30%) contrast(140%);
             transform: scale(1.05);
         }
 
@@ -362,7 +377,7 @@
 
         /* Stats Section */
         .stats-section {
-            background: #000;
+            background: rgba(0,0,0,0.85);
             padding: 80px 20px;
             text-align: center;
         }
@@ -375,7 +390,7 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #1a0000 0%, #000 100%);
+            background: linear-gradient(135deg, rgba(26,0,0,0.8) 0%, rgba(0,0,0,0.9) 100%);
             padding: 40px 20px;
             border: 2px solid #ff0000;
             box-shadow: 0 0 20px rgba(255,0,0,0.3);
@@ -418,7 +433,7 @@
 
         /* Urgency Section */
         .urgency-section {
-            background: linear-gradient(180deg, #1a0000 0%, #0a0a0a 100%);
+            background: rgba(10,10,10,0.85);
             padding: 100px 20px;
             text-align: center;
         }
@@ -453,7 +468,7 @@
         }
 
         .urgency-item {
-            background: rgba(255,0,0,0.05);
+            background: rgba(255,0,0,0.08);
             border-left: 5px solid #ff0000;
             padding: 30px;
             margin-bottom: 30px;
@@ -474,7 +489,7 @@
         }
 
         .urgency-item:hover {
-            background: rgba(255,0,0,0.1);
+            background: rgba(255,0,0,0.15);
             transform: translateX(10px);
         }
 
@@ -494,7 +509,7 @@
 
         /* Footer Section */
         .footer-section {
-            background: #000;
+            background: rgba(0,0,0,0.9);
             padding: 60px 20px;
             text-align: center;
             border-top: 3px solid #ff0000;
@@ -556,10 +571,7 @@
         <div class="container">
             <div class="split-content">
                 <div class="image-box">
-                    <!-- Placeholder for image - ganti dengan foto prostetik leg Anda -->
-                    <div style="height: 600px; background: linear-gradient(45deg, #222, #111); display: flex; align-items: center; justify-content: center; color: #666;">
-                        <img src="contoh.png" alt="kecelakaan kerja">
-                    </div>
+                    <img src="contoh.png" alt="kecelakaan kerja">
                 </div>
                 <div class="text-box">
                     <h2>KONSEKUENSI NYATA KECELAKAAN KERJA</h2>
